@@ -1,0 +1,35 @@
+<%- include("template/cabecera", {tituloweb: 'Calidad del Aire en Tiempo Real'}) %> 
+<body class="container">
+    <h1 class="mt-2">Calidad del Aire en Tiempo Real</h1>
+    <h2 class="mt-2">Air Quality in Real Time</h2>
+    <hr>
+
+    <form action="/" method="post">
+        <label> Air Quality: </label>
+        <input type="text" autocomplete="off" name="Airquality" class="form-control b-0" autofocus>
+        <hr>
+        <div class="col">
+            <button id="btnEnviar" class="btn btn-primary w-100 mb-2">
+                Enviar
+            </button>
+        </div>
+    </form>  
+    
+    <div class="container">
+        <% if (arrayLugar.length > 0) { %>
+            <% arrayLugar.forEach(lugar => { %>
+                <ul class="list-group">
+                    <li class="list-group-item"><%= lugar.ciudad %></li>
+                    <li class="list-group-item"><%= lugar.clima %></li>
+                    <li class="list-group-item"><%= lugar.temperatura %></li>
+                    <li class="list-group-item"><%= lugar.humedad %></li>
+                    <li class="list-group-item"><%= lugar.ica %></li>
+                    <li class="list-group-item"><%= lugar.partículas %></li>
+                    <li class="list-group-item"><%= lugar.descr %></li> 
+                  </ul>
+            <% }) %>
+        <% } %>          
+    </div>
+  
+<%- include("template/footer") %> 
+    
